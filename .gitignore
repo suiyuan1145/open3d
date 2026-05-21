@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local editor settings
+.vscode/
+.idea/
+.repo-git/
+
+# Generated reconstruction inputs/outputs
+input/
+model_outputs/
+
+# Native/build artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+*.so
+*.pyd
+*.dll
+*.exe
+*.obj
+*.o
+
+# External nested repository
+VRCNet/
+
+# VRCNet generated data/checkpoints/build outputs
+VRCNet/data/
+VRCNet/pretrained/
+VRCNet/**/build/
+VRCNet/**/dist/
+VRCNet/**/*.egg-info/
+VRCNet/**/*.so
+VRCNet/**/*.o
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+Thumbs.db

@@ -1,0 +1,143 @@
+{
+  "methods": {
+    "superquadric": {
+      "input": "object.xyz",
+      "output": "object_superquadric.obj",
+      "params_out": "params.json",
+      "output_root": "model_outputs",
+      "resolution": 64,
+      "f_scale": 0.05,
+      "max_nfev": 1500
+    },
+    "poisson": {
+      "input": "input/livox_raw_120deg_500k_20260511_121137.pcd",
+      "output": "object_poisson.obj",
+      "params_out": "poisson_params.json",
+      "output_root": "model_outputs",
+      "depth": 10,
+      "scale": 1.1,
+      "voxel_size": 0.05,
+      "linear_fit": false,
+      "normals_radius": 0.05,
+      "normals_max_nn": 50,
+      "orient_max_nn": 100,
+      "density_quantile": 0.05,
+      "statistical_outlier_nb_neighbors": 10,
+      "statistical_outlier_std_ratio": 3.0,
+      "radius_outlier_nb_points": 0,
+      "radius_outlier_radius": 0.0,
+      "completion_rounds": 1,
+      "completion_max_distance": 0.0
+    },
+    "ball_pivoting": {
+      "input": "object.xyz",
+      "output": "object_ball_pivoting.obj",
+      "params_out": "ball_pivoting_params.json",
+      "output_root": "model_outputs",
+      "radii": [
+        0.003,
+        0.006,
+        0.012,
+        0.024
+      ],
+      "normals_radius": 0.05,
+      "normals_max_nn": 30
+    },
+    "alpha_shape": {
+      "input": "object.xyz",
+      "output": "object_alpha_shape.obj",
+      "params_out": "alpha_shape_params.json",
+      "output_root": "model_outputs",
+      "alpha": 0.03
+    },
+    "convex_hull": {
+      "input": "object.xyz",
+      "output": "object_convex_hull.obj",
+      "params_out": "convex_hull_params.json",
+      "output_root": "model_outputs",
+      "joggle_inputs": false
+    },
+    "marching_cubes": {
+      "input": "object.xyz",
+      "output": "object_marching_cubes.obj",
+      "params_out": "marching_cubes_params.json",
+      "output_root": "model_outputs",
+      "grid_resolution": 64,
+      "ball_radius": 0.006,
+      "padding": 0.05,
+      "level": 0.0
+    }
+  },
+  "training": {
+    "alpha_shape": {
+      "inputs": [
+        "object.xyz"
+      ],
+      "alpha_candidates": [
+        0.01,
+        0.015,
+        0.02,
+        0.025,
+        0.03,
+        0.04,
+        0.05,
+        0.07
+      ],
+      "sample_points": 4000,
+      "max_eval_points": 5000,
+      "component_penalty": 0.03,
+      "recommended_alpha": 0.03
+    },
+    "poisson": {
+      "inputs": [
+        "input/livox_raw_120deg_500k_20260511_121137.pcd"
+      ],
+      "depth_values": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "scale_values": [
+        1.05,
+        1.1
+      ],
+      "normals_radius_values": [
+        0.02,
+        0.05
+      ],
+      "normals_max_nn_values": [
+        30,
+        50
+      ],
+      "orient_max_nn_values": [
+        50,
+        100
+      ],
+      "density_quantile_values": [
+        0.0,
+        0.02,
+        0.05
+      ],
+      "linear_fit_values": [
+        false
+      ],
+      "sample_points": 4000,
+      "max_eval_points": 5000,
+      "voxel_size": 0.05,
+      "max_reconstruction_points": 20000,
+      "component_penalty": 0.03,
+      "f_score_threshold": 0.01,
+      "f_score_weight": 0.05,
+      "recommended_params": {
+          "depth": 10,
+        "scale": 1.1,
+        "normals_radius": 0.05,
+        "normals_max_nn": 50,
+        "orient_max_nn": 100,
+        "density_quantile": 0.05,
+        "linear_fit": false
+      }
+    }
+  }
+}
